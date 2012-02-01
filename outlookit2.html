@@ -1,0 +1,981 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>MSOutlookit</title>
+
+
+<style type="text/css">
+body {
+	font-family:"Times New Roman",Times,serif;
+	padding:0px;
+	margin:0px;
+	z-index:1;
+	min-width:600px;
+	min-height:800px;
+	overflow:hidden;
+}
+
+textarea {
+	padding:10px;
+	font-family:"Times New Roman",Times,serif;
+	font-size:12pt;
+	resize:none;
+}
+
+.ui-resizable-se {
+	height:20px;
+	width:20px;
+	cursor:se-resize;
+	position:absolute;
+	bottom:0px;
+	right:0px;
+}
+
+.minholder {
+	height:55px;
+	width:80%;
+	position:fixed;
+	left:180px;
+	bottom:0px;
+	z-index:103;
+	float:left;
+}
+
+
+.foldwraphi {
+	background:#DDD;
+}
+
+
+.afolder {
+	margin-left:50px;
+	padding-left:20px;
+	background-image:url('folderico.png');
+	background-repeat: no-repeat;
+	background-position:0px 0px;
+	height:16px;
+	font-size:10pt;
+	padding-top:1px;
+	cursor:pointer;
+}
+
+.emailmin {
+	background-image:url('sprites.png');
+	background-position:-77px -149px;
+	width:163px;
+	height:27px;
+	display:inline-block;
+	float:left;
+}
+
+.emailminhigh {
+	background-image:url('sprites.png');
+	background-position:-78px -118px;
+	width:159px;
+}
+
+
+
+.start {
+	background-image:url('sprites.png');
+	background-position:0px 1px;
+	width:178px;
+	height:60px;
+	position:fixed;
+	bottom:0px;
+	left:0px;
+	z-index:101;
+}
+
+td.right * .uparrow {
+	cursor:pointer;
+	position:absolute;
+	left:10px;
+	width:17px;
+	height:18px;
+	background-repeat:no-repeat;
+	background-position:0px -45px;
+}
+
+td.right:hover * .uparrow {
+	background-image:url('arrows.png');
+}
+
+td.right * .downarrow {
+	position:absolute;
+	cursor:pointer;
+	left:10px;
+	top:20px;
+	width:17px;
+	height:18px;
+	background-position:0px -65px;
+}
+td.right:hover * .downarrow {
+	background-image:url('arrows.png');
+}
+
+.startbanner {
+	background-image:url('startbanner.PNG');
+	width:3000px;
+	height:60px;
+	position:fixed;
+	bottom:0px;
+	left:0px;
+	z-index:100;
+}
+
+.icons {
+	background-image:url('sprites.png');
+	background-position:0px -117px;
+	width:70px;
+	height:60px;
+	position:fixed;
+	right:100px;
+	bottom:0px;
+	z-index:102;
+}
+
+div.theemailbody * .ui-resizable-e {
+	width:100%;
+	height:100%;
+	position:relative;
+	bottom:0px;
+	left:0px;
+	cursor:e-resize;
+}
+
+.clockholder {
+	position:fixed;
+	right:5px;
+	bottom:-4px;
+	z-index:103;
+	height:60px;
+	width:90px;
+	text-align:center;
+	color:#FFF;
+	font-size:11pt;
+	font-family:‘Palatino Linotype’, ‘Book Antiqua’, Palatino, serif, sans-serif;
+}
+
+.iconsbanner {
+	background-image:url('iconsbanner.PNG');
+	width:500px;
+	height:60px;
+	position:fixed;
+	bottom:0px;
+	right:-400px;
+	z-index:101;
+}	
+
+.upperleft {
+	background-image:url('sprites.png');
+	background-position: 368px 317px;
+	position:fixed;
+	z-index:2;
+	top:0px;
+	left:0px;
+	width:286px;
+	height:49px;
+}
+
+.bottombar {
+	background-image:url('4.PNG');
+	width:3000px;
+	height:23px;
+	z-index:2;
+	bottom:60px;
+	left:0px;
+	position:fixed;
+}
+
+.topbar {
+	background-image:url('2.PNG');
+	position:fixed;
+	top:0px;
+	left:0px;
+	z-index:1;
+	height:79px;
+	width:3000px;
+}
+
+.backgradient {
+	background-image: -moz-linear-gradient(top, #bedafe, #5f89c1);
+	background-image: -webkit-gradient(linear, center top, center bottom, from(#bedafe), to(#5f89c1));
+	background-image: -o-linear-gradient(top, #bedafe, #5f89c1);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#bedafe', endColorstr='#5f89c1');
+	/*INNER ELEMENTS MUST NOT BREAK THIS ELEMENTS BOUNDARIES*/
+	/*Element must have a height (not auto)*/
+	/*All filters must be placed together*/
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#bedafe', endColorstr='#5f89c1')";
+	/*Element must have a height (not auto)*/
+	/*All filters must be placed together*/
+	background-image: linear-gradient(top, #bedafe, #5f89c1);
+	position:relative;
+	top:79px;
+	z-index:0;
+	left:0px;
+	width:100%;
+	height:3000px;
+}
+
+.buttons {
+	background-image:url('sprites.png');
+	background-position:0px -608px;
+	position:fixed;
+	top:49px;
+	left:2px;
+	z-index:2;
+	height:30px;
+	width:773px;
+}
+
+.leftcol {
+	padding:0px;
+	border: 1px solid #6593CF;
+	width:185px;
+	background:#FFF;
+	position:relative;
+	left:2px;
+	vertical-align:top;
+}
+
+.middle {
+	vertical-align:top;
+	position:relative;
+	border: 1px solid #6593CF;
+	width:383px;
+	background:#FFF;
+	padding:0px;
+	left:4px;
+}
+
+.middlewrapper {
+	overflow:scroll;
+}
+
+.middleupper {
+	background-image:url('sprites.png');
+	background-position:-253px -102px;
+	width:383px;
+	height:75px;
+}
+
+.leftcolupper {
+	background-image:url('sprites.png');
+	background-position:-205px -384px;
+	width:185px;
+	height:214px;
+}
+
+.commentroot {
+	position:relative;
+}
+
+td.right:hover * .commentroothi {
+	background:#CAE6E6;
+	border:solid 1px blue;
+}
+td.right:hover * .md {
+}
+
+
+td.right:hover  * .showhover {
+	opacity:0.8;
+}
+
+.showhover:hover {
+	opacity:1.0 !important;
+}
+
+.childrencomments {
+	border-left: 2px solid #FFF;
+}
+
+td.right:hover * a {
+	text-decoration:underline;
+	cursor:auto;
+	color:-webkit-link;
+}
+
+td.right * a {
+	cursor:pointer;
+	color:#000;
+}
+
+td.right * img.normal {
+	display:none;
+}
+
+td.right * iframe {
+	display:none;
+}
+
+td.right:hover * iframe {
+	display:block;
+}
+
+td.right * .lynxexpandodiv {
+	display:none;
+}
+td.right:hover * .lynxexpandodiv {
+	display:block;
+}
+
+td.right:hover * img {
+	display:block;
+}
+
+td.right:hover * .authorandstuff {
+	display:block;
+}
+
+td.right * .childrencomments {
+	margin-left:15px;
+	border-left:2px solid #FFF;
+}
+
+td.right:hover * .childrencomments {
+	background:#E0FFFF;
+}
+
+td.right:hover * .child0 {
+	border-left:2px dashed #0066FF;
+}
+
+td.right:hover * .child1 {
+	border-left:2px dashed #0099FF;
+}
+
+td.right:hover * .child2 {
+	border-left:2px dashed #00CCFF;
+}
+
+td.right:hover * .child3 {
+	border-left:2px dashed #00CCA3;
+}
+
+td.right:hover * .child4 {
+	border-left:2px dashed #00CC7A;
+}
+
+td.right:hover * .child5 {
+	border-left:2px dashed #33FF33;
+}
+
+td.right:hover * .child6 {
+	border-left:2px dashed #66FF66;
+}
+td.right:hover * .child7 {
+	border-left:2px dashed #99FF33;
+}
+td.right:hover * .child8 {
+	border-left:2px dashed #CCFF33;
+}
+td.right:hover * .child9 {
+	border-left:2px dashed #FFFF00;
+}
+td.right:hover * .child10 {
+	border-left:2px dashed #FFCC00;
+}
+td.right:hover * .child11 {
+	border-left:2px dashed #FF9933;
+}
+
+td.right:hover * .child12 {
+	border-left:2px dashed #FF6600;
+}
+
+.commentbody {
+	padding-top:10px;
+	margin-left:15px;
+	margin-right:15px;
+}
+
+.leftcollower {
+	background-image:url('sprites.png');
+	background-position:0px -382px;
+	position:fixed;
+	left:5px;
+	bottom:80px;
+	width:185px;
+	height:169px;
+}
+
+.commentauthor {
+	color:#369;
+	font-size:small;
+	background:#EEE;
+
+}
+
+.authorandstuff {
+	position:relative;
+	top:15px;
+	left:25px;
+	margin-left:5px;
+	font-size:small;
+	padding:2px;
+	border-bottom:1px solid #DDD;
+}
+
+.right {
+	width:54%;
+	background:#FFF;
+	position:relative;
+	left:7px;
+	border: 1px solid #6593CF;
+	vertical-align:top;
+}
+.folderholder {
+	overflow-y:scroll;
+}
+
+.sendbutton {
+	width:49px;
+	height:75px;
+	position:absolute;
+	left:2px;
+	top:4px;
+	cursor:pointer;
+}
+td.right:hover * .storycommentline {
+	background:#85D6FF;
+}
+
+td.right * .storycommentline {
+	height:20px;
+	margin-top:20px;
+	margin-bottom:20px;
+}
+.spacer {
+	height:30px;
+}
+.storydown {
+	position:relative !important;
+	left:9px !important;
+	top:0px;
+}
+.storyup {
+	position:relative !important;
+	top: 15px !important;
+	left: 9px !important;
+}
+.storyreply {
+	position:relative;
+	left:40px;
+}
+
+
+.popup {
+	position:fixed;
+	top:0px;
+	left:200px;
+	width:200px;
+	height:200px;
+	padding:20px;
+	color:#000;
+	cursor:pointer;
+	border:2px solid #EEE;
+	z-index:1000;
+-moz-border-radius:10px;
+-webkit-border-radius:10px;
+border-radius:10px;
+/*IE 7 AND 8 DO NOT SUPPORT BORDER RADIUS*/
+-moz-box-shadow:0px 0px 8px #000000;
+-webkit-box-shadow:0px 0px 8px #000000;
+box-shadow:0px 0px 8px #000000;
+/*IE 7 AND 8 DO NOT SUPPORT BLUR PROPERTY OF SHADOWS*/
+background-image: -moz-linear-gradient(top, #08ff13, #6aff5e);
+background-image: -webkit-gradient(linear, center top, center bottom, from(#08ff13), to(#6aff5e));
+background-image: -o-linear-gradient(top, #08ff13, #6aff5e);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#08ff13', endColorstr='#6aff5e');
+/*INNER ELEMENTS MUST NOT BREAK THIS ELEMENTS BOUNDARIES*/
+/*Element must have a height (not auto)*/
+/*All filters must be placed together*/
+-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#08ff13', endColorstr='#6aff5e')";
+/*Element must have a height (not auto)*/
+/*All filters must be placed together*/
+background-image: linear-gradient(top, #08ff13, #6aff5e);
+-moz-background-clip: padding-box;
+-webkit-background-clip: padding-box;
+background-clip: padding-box;
+/*Use "background-clip: padding-box" when using rounded corners to avoid the gradient bleeding through the corners*/
+/*--IE9 WILL PLACE THE FILTER ON TOP OF THE ROUNDED CORNERS--*/
+}
+
+.softpopup {
+	position:fixed;
+	bottom:60px;
+	left:30px;
+	color:#333;
+	z-index:1001;
+	height:23px;
+	background-image:url('4.PNG');
+	width:3000px;
+}
+
+
+td.right:hover *  .arrowshadow {
+	box-shadow: 0px 0px 5px #999;
+}
+.upped {
+	background-position:0px 0px !important;
+}
+.downed {
+	background-position:0px -20px !important;
+}
+
+.anemail {
+
+	cursor:pointer;
+	min-height:40px;
+	max-height:200px;
+	border:1px solid #EEE;
+	padding-bottom:1px;
+}
+.emailunread  * .emailtitle {
+	/*font-weight:bold;*/
+}
+.anemailhi {
+	border:1px dashed blue;
+	background:#4D94FF;
+}
+.anemailhi * .emailtitle {
+	color:#FFF;
+}
+.emailicon {
+	float:left;
+	height:34px;
+	width:25px;
+	background-image:url('sprites.png');
+	background-position:-240px -59px;
+	
+}
+
+.emailpreview {
+	width:290px;
+	position:relative;
+	left:-30px;
+	overflow:hidden;
+}
+
+.emailiconright {
+	float:left;
+	position:relative;
+	left:300px;
+	height:34px;
+	width:39px;
+	height:33px;
+	background-image:url('sprites.png');
+	background-position:-182px -60px;
+}
+
+
+.mainrow {
+	height:3000px;
+}
+
+.emailwindow {
+	width:800px;
+	height:600px;
+	border: 1px solid #FFF;
+	z-index:4;
+	position:relative;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border-radius:4px;
+	/*IE 7 AND 8 DO NOT SUPPORT BORDER RADIUS*/
+	/*IE 7 AND 8 DO NOT SUPPORT BLUR PROPERTY OF SHADOWS*/
+	border:1px solid #000;
+	overflow-x:hidden;
+	overflow-y:hidden;
+	background:#A7C4E9;
+}
+
+.upperleftemailwindow {
+	background-image: url('sprites.png');
+	background-position:-266px -1px;
+	width:333px;
+	height:57px;
+	position:relative;
+	top:-1px;
+	left:-1px;
+	z-index:5;
+}
+
+.emailwindowbanner {
+	width:3000px;
+	background-image:url('11.PNG');
+	height:57px;
+	position:relative;
+	z-index:4;
+	top:-58px;
+}
+
+.closebuttons {
+	width:71px;
+	height:26px;
+	background-image:url('sprites.png');
+	background-position:-187px -22px;
+	position:absolute;
+	top:2px;
+	right:2px;
+	z-index:5;
+}
+
+.maximize {
+	height:26px;
+	width:18px;
+	background:#FFF;
+	opacity:0.0;
+	position:absolute;
+	top:2px;
+	right:28px;
+	z-index:6;
+	cursor:pointer;
+}
+
+.minimize {
+	height:26px;
+	width:18px;
+	background:#FFF;
+	opacity:0.0;
+	position:absolute;
+	top:2px;
+	right:52px;
+	z-index:6;
+	cursor:pointer;
+}
+
+.newemailbutton {
+	position:absolute;
+	top:52px;
+	left:6px;
+	width:70px;
+	height:22px;
+	background:#FFF;
+	z-index:1000;
+	cursor:pointer;
+	opacity:0;
+}
+.newemailbutton:hover {
+	opacity:0.3;
+}
+
+.windowclose {
+	height:26px;
+	width:18px;
+	background:#FFF;
+	opacity:0.0;
+	position:absolute;
+	top:2px;
+	right:4px;
+	z-index:6;
+	cursor:pointer;
+}
+
+.windowclose:hover {
+	opacity:0.4;
+}
+
+.minimize:hover {
+	opacity:0.4;
+}
+
+.maximize:hover {
+	opacity:0.4;
+}
+
+.theemailbody {
+	overflow:scroll;
+	overflow-x:hidden;
+	width:100%;
+}
+
+.emailbuttons {
+	width:672px;
+	height:94px;
+	position:relative;
+	top:-63px;
+	left:3px;
+	background-image:url('sprites.png');
+	background-position:-1px -272px;
+	z-index:4;
+	float:left
+}
+
+.outlookmin {
+	width:163px;
+	height:26px;
+	background-image:url('sprites.png');
+	background-position:0px -87px;
+	float:left;
+	display:inline-block;
+	position:relative;
+	top:1px;
+}
+
+.outlookminhi {
+	background-position:0px -61px;
+}
+
+.emailbuttonsbanner {
+	width:3000px;
+	height:94px;
+	position:relative;
+	top:-156px;
+	background-image:url('13.PNG');
+	z-index:3;
+	background-position: 0px -1px;
+	float:left;
+	left:10px;
+}
+
+.emailcomposewindow {
+	background:#E3EFFF;
+	height:300px;
+	width:99%;
+	position:relative;
+	left:5px;
+	top:33px;
+	z-index:10;
+	vertical-align:top;
+}
+
+.emailcomposebuttons {
+	background-image:url('sprites.png');
+	background-position:0px -184px;
+	width:117px;
+	height:80px;
+}
+
+.emailcomposebody {
+	width:96%;
+	position:relative;
+	height:74%;
+	left:4px;
+	top:-180px;
+}
+
+.tofield {
+	position:relative;
+	top:-186px;
+	left:120px;
+	width:80%;
+}
+
+.ccfield {
+	position:relative;
+	top:-185px;
+	left:120px;
+	width:80%;
+}
+.subjectfield {
+	position:relative;
+	top:-185px;
+	left:120px;
+	width:80%;
+}
+
+div.expando {
+	display:inline-block;
+	margin:5px;
+	text-align:center;
+	vertical-align:center;
+	color:#FFF;
+	width:20px;
+	height:20px;
+	background:#0033CC;
+	cursor:pointer;
+	cursor:hand;
+}
+div.expando:hover {
+opacity:1.0;
+}
+
+div.lynxexpando {
+	display:inline-block;
+	margin:5px;
+	text-align:center;
+	vertical-align:center;
+	color:#FFF;
+	width:60px;
+	height:20px;
+	background:#FF3300;
+	cursor:pointer;
+	cursor:hand;
+}
+div.lynxexpando:hover {
+opacity:1.0;
+}
+
+.expandoimg {
+	display:block;
+	width:100%;
+	margin:20px;
+}
+
+.lynxexpandodiv {
+	display:block;
+	width:90%;
+	overflow: scroll;
+	background-color:#DDD;
+	height:300px;
+	border: solid 2px #0066FF;
+	padding:30px;
+	margin:10px;
+}
+
+
+
+.emailname {
+	font-family: "Helvetica Neu",Times,serif;
+	padding-top:2px;
+}
+
+.emailtitle {
+	font-family: "Helvetica Neu",Times,serif;
+	color:#888;
+	font-size:11pt;
+}
+
+.showhover {
+	opacity:0.08;
+}
+
+.donatepic
+{
+-moz-border-radius:12px;
+-webkit-border-radius:12px;
+border-radius:12px;
+/*IE 7 AND 8 DO NOT SUPPORT BORDER RADIUS*/
+-moz-box-shadow:0px 0px 27px #000000;
+-webkit-box-shadow:0px 0px 27px #000000;
+box-shadow:0px 0px 27px #000000;
+}
+	
+
+</style>
+<!--[if IE]>
+<style type='text/css'>
+	.maximize {
+	background:none;
+	}
+	.minimize {
+	background:none;
+	}
+	.windowclose {
+	background:none;
+	}
+	.newemailbutton {
+	background:none;
+	}
+</style>
+<![endif]-->
+
+</head>
+<body>
+	<link rel="shortcut icon" href="favicon.ico" />
+
+<div class="start">
+</div>
+<div class="startbanner">
+</div>
+<div class="icons">
+</div>
+<div class="iconsbanner">
+</div>
+<div class="minholder">
+	<div class="outlookmin outlookminhi">
+	</div>
+</div>
+
+	<link rel="shortcut icon" href="/favicon.ico" />
+<div class="backgradient">
+<table>
+	<tr class="mainrow">
+		<td class="leftcol">
+			<div class="leftcolupper">
+			</div>
+			<div class="folderholder">
+
+			</div>
+		</td>
+		<td class="middle">
+			<div class="middleupper">
+			</div>
+			<div id="previewarea" class="middlewrapper">
+				<div class="anemail">
+					<div class="emailicon">
+					</div>
+					<div class="emailiconright">
+					</div>
+					<div class="emailpreview">
+						<div class="emailname">
+							Rick Deckard from HR
+						</div>
+						<div class="emailtitle">
+							My suspicions on that new hire...
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</td>
+		<td class="right">
+			<div class="theemailbody">
+			
+			<div style="padding:30px;">
+			
+			Have feedback? Email the developer at petermcottle@gmail.com  </br></br>
+			<img class="donatepic" src="http://i.imgur.com/AumDq.jpg" style="float:left;margin-right:30px;"/>
+</br></br>
+<br/>
+A note on security: Your passwords are NEVER stored in plaintext on the server. I use your inputted password and send it directly to the reddit API; if authentication succeeds, I dump the cookie (with python's pickle module) directly to a string and store it in a database. Essentially, I store the cookie of your authenticated session rather than your password (not even the hash), so don't worry about my server getting hacked and passwords going everywhere.
+
+<br/><br/>
+
+That being said, passwords are sent via a standard POST request to my server (just like normal reddit.com), so if you're on an insecure network, you could get packet-sniffed. That's a liability with a ton of websites though, including reddit.com.
+			</div>
+			
+			<p>
+			<button onclick="javascript:toggleTaskbar()">Toggle Taskbar</button>
+			
+			
+			
+			
+			
+			
+			</div>
+		</td>
+	</tr>
+</table>
+</div>
+<div class="upperleft">
+</div>
+<div class="newemailbutton">
+</div>
+<div class="leftcollower">
+</div>
+<div class="topbar">
+</div>
+<div class="buttons">
+</div>
+<div class="bottombar">
+</div>
+<div class="clockholder">
+</div>
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js" type="text/javascript"></script>
+	<script src="ui/jquery.ui.core.min.js"></script> 
+	<script src="ui/jquery.ui.widget.min.js"></script> 
+	<script src="ui/jquery.ui.mouse.min.js"></script> 
+	<script src="ui/jquery.ui.draggable.min.js"></script> 
+	<script src="ui/jquery.ui.resizable.min.js"></script> 
+<script type="text/javascript" src="thejs.js">
+</script>
+
+</body></html>
