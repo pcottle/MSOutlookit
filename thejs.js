@@ -1391,4 +1391,7 @@ $(document).ready(function(){
 		}
 	});
 
+	//taskbar off by default now
+	hideTaskbar();
+
 });
