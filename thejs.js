@@ -437,7 +437,7 @@ function commentsCallback(storyJSON)
 	}	
 	else
 	{
-		console.log('not the right story selected right now');
+		//console.log('not the right story selected right now');
 	}
 }
 
@@ -501,7 +501,7 @@ function unEncode(text)
 	if(text.indexOf('uploads') != -1)
 	{
 		debug = true;
-		console.log(text);
+		//console.log(text);
 	}
 
 
@@ -632,7 +632,6 @@ function expandoClick()
 		var idFinder = finder;
 		var height = $(idFinder).children('.ui-wrapper').height();
 		var width = $(idFinder).children('.ui-wrapper').width();
-		console.log(width);
 		$(idFinder).children('.ui-wrapper').children('.ui-resizable-e').width(width);
 		$(idFinder).children('.ui-wrapper').children('.ui-resizable-e').height(height);
 		$(idFinder).children('.ui-wrapper').children('.ui-resizable-e').css('top','-' + String(height) + 'px');
@@ -760,7 +759,6 @@ function onResize()
 
 function toggleTaskbar()
 {
-	console.log("changing...");
 	if(noTaskbar)
 	{
 		showTaskbar();
@@ -1157,12 +1155,12 @@ function handleEmailSend(id,tofield,ccfield,subjectfield,body)
 
 function emailCallback(data)
 {
-	console.log(data);
+	//console.log(data);
 }
 
 function replytoCallback(data)
 {
-	console.log(data);
+	//console.log(data);
 	makeSoftpopup("Comment posted!");
 }
 
@@ -1188,7 +1186,7 @@ function subredditCallback(data)
 	for(var i = subList.length - 1; i >= 0; i--)
 	{
 		var subName = subList[i].data.display_name;
-		console.log(subName);
+		//console.log(subName);
 		if(tempAlreadyThere[subName] == null)
 		{
 			makeFolder2(subName,true);
