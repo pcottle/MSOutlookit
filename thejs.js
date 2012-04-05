@@ -2,6 +2,8 @@
 
 var noTaskbar = 0;
 
+var alwaysHideNSFW = true;
+
 var randomNames = [
 	'Rick Deckard - HR',
 	'James Bond - Operations',
@@ -300,7 +302,10 @@ function myStory(parentJson,folder,addToDom)
 	//if over18
 	if(rootJson.over_18)
 	{
-		this.title = this.title + '<b><font style="color:red"> NSFW</font></b>';
+		if(!alwaysHideNSFW || true)
+		{
+			this.title = this.title + '<b><font style="color:red"> NSFW</font></b>';
+		}
 	}
 	
 	//theres DEF a better way to do this. too busy hackin'
