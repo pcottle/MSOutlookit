@@ -1011,7 +1011,10 @@ function folderCallback(data)
 	$('.afolder').click(folderIconClick);
 	//we should populate this folder with the data we just got
 	var thefolder = globalFolderDict[tempFolderName];
-	//console.log(data);
+	if (console.log) {
+		console.log('what we got back');
+		console.log(data);
+	}
 	//set up the bottomless stuff
 	var after = data.data.after;
 	globalFolderDict[tempFolderName].after = after;
