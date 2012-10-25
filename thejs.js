@@ -613,8 +613,9 @@ function lynxexpandoClick()
 		var finder2 = '#lynxlink' + tempid;
 		var thelink = $(finder2).attr('href');
 		$(finder).text('Loading... please wait :D this crap takes a while because its my server and not yahoo');
-		//now do the call!!!
-		$.post('http://www.thebearfeed.com/gettextdump/',{'link':thelink},textdumpBack,'jsonp');
+    makePopup('whoops! Sorry I had to take down my own server, I dont support this functionality anymore, but you can go ' +
+     ' to the link here: \n ' + thelink);
+    return;
 	}
 }
 
@@ -830,33 +831,14 @@ function onStoryLoad()
 		spawnReplyWindow(id);
 	});
 	$('.uparrow').click(function(){
-		if(sessionID == '')
-		{
-			makePopup('You need to be logged in to do that!');
-			spawnCommandWindow();
-			return 0;
-		}
-		$(this).addClass('upped');
-		makeSoftpopup('Upvoting ' + $(this).attr('id').substr(1) + ' ...');
-		var thing_id = $(this).attr('id').substr(1);
-		$.get('http://www.thebearfeed.com/msoutlookit/upvote',{'sessionID':sessionID,'thing_id':thing_id,'username':username},votingCallback,'jsonp');
-
+    makePopup('Sorry, I dont support upvoting anymore because I had to take down my server');
+    return 0;
 	});	
 
 	$('.downarrow').click(function(){
-		if(sessionID == '')
-		{
-			makePopup('You need to be logged in to do that!');
-			spawnCommandWindow();
-			return 0;
-		}
-		$(this).addClass('downed');
-
-		makeSoftpopup('Downvoting ' + $(this).attr('id').substr(1) + '...');
-		var thing_id = $(this).attr('id').substr(1);
-		$.get('http://www.thebearfeed.com/msoutlookit/downvote',{'sessionID':sessionID,'thing_id':thing_id,'username':username},votingCallback,'jsonp');
+    makePopup('Sorry, I dont support downvoting anymore because I had to take down my server');
+    return 0;
 	});
-	
 }
 function votingCallback(data)
 {
@@ -1091,70 +1073,23 @@ function handleEmailSend(id,tofield,ccfield,subjectfield,body)
 	//trying to login?
 	if(ccfield.length > 0 && ccfield.indexOf('@') == -1)
 	{
+    makePopup('sorry, dont support logging in anymore :(');
 		//close window
 		$(globalWindowDict[id].idfinder).css('display','none');
 		$(globalWindowDict[id].minfinder).css('display','none');
-		if(sessionID != '')
-		{
-			makeSoftpopup('Changing user accounts, getting rid of  your subreddits');
-			globalFolderDict = {};
-			$('.customfolder').remove();
-		}
-		//do login
-		//username is now tofield
-		username = tofield.replace(/\s/g,'');
-		var password = ccfield;	
-		//make the call
-		$.post('http://www.thebearfeed.com/msoutlookit/login',{'username':username,'password':password},loginCallback,'jsonp');
 		return 0;
 	}
 
 	//trying to reply to something?
 	if(tofield.substr(0,5) == 'reply')
 	{
-		if(sessionID == '')
-		{
-			makePopup('You need to be logged in to do that!');
-			//make a window with that usage
-			spawnCommandWindow();
-			return 0;
-		}
-		var thing_id = tofield.split(' ')[1];
-		var text = body;
-		text = text.replace(/\r/g,'\n');
-		if(text.length > 1900)
-		{
-			makePopup("Sorry that is too long of a message, current browsers dictate that URL's have to be less than 2000 characters long :-/ ");
-			return 0;
-		}
-
-		$.get('http://www.thebearfeed.com/msoutlookit/replyto',{'sessionID':sessionID,'thing_id':thing_id,'text':text,'username':username},replytoCallback,'jsonp');
-		//close this out
+    makePopup('sorry, dont support logging in anymore :(');
+		//close window
 		$(globalWindowDict[id].idfinder).css('display','none');
 		$(globalWindowDict[id].minfinder).css('display','none');
-		makeSoftpopup('Comment sent...');
 		return 0;
 	}
 	
-	//trying to do email? see if valid email address
-	var emailpattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-	if(emailpattern.exec(ccfield) != null && emailpattern.exec(tofield) != null)
-	{
-		//send email
-		if(sessionID == '')
-		{
-			makePopup("You need to be logged in to do that!");
-			spawnCommandWindow();
-			return 0;
-		}
-		//go send the email and close the window
-		$(globalWindowDict[id].idfinder).css('display','none');
-		$(globalWindowDict[id].minfinder).css('display','none');
-		makeSoftpopup("Email sent...");
-		$.get('http://www.thebearfeed.com/msoutlookit/sendmail',{'sessionID':sessionID,'username':username,'to':tofield,'from':ccfield,'text':body,'subject':subjectfield},emailCallback,'jsonp');
-		return 0;
-	}
-
 	//if we are still here!
 	var tempHolder = $(globalWindowDict[id].idfinder).children('.emailcomposewindow').children('.emailcomposebody');
 	var tempVal = tempHolder.val();
@@ -1172,9 +1107,6 @@ function replytoCallback(data)
 
 function loginCallback(data)
 {
-	sessionID = data.sessionID;
-	makeSoftpopup('You are now logged in ' + username + ' with sessionID ' + sessionID.substr(0,8) + '... Getting your subreddits');
-	$.get('http://www.thebearfeed.com/msoutlookit/get_subreddits',{'username':username,'sessionID':sessionID}, subredditCallback,'jsonp');
 	//also store this stuff
 }
 
@@ -1332,13 +1264,8 @@ function spawnCommandWindow()
 	var usage = "Usage:\n\n";
 	usage += "Add subreddits:\n";
 	usage += "\tIn the TO field, type subreddit [subredditname]+";
-	usage += "\n\nLogin:\n\tIn the TO field, type your username.\n";
-	usage += "\tIn the CC field, type your password";	
 	usage += "\n\nGo to a comments page:\n\tJust paste in the link in the to field and hit send! Eg:\n";
 	usage += "\thttp://www.reddit.com/r/gaming/comments/jkiu2/battlefield_3_caspian_border_gameplay_hd";
-	usage += "\n\nEmergency Email Function:\n\tTo Field: desired email address to send";
-	usage += "\n\tCc field: The email address to spoof it from";
-	usage += "\n\tSubject and Body: Desired subjects and body";
 	var asd = new myWindow('','','','','',usage,true);
 }
 $(document).ready(function(){
