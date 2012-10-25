@@ -358,8 +358,9 @@ function populateStory(id)
 
 	var storyName = id.substr(3);
 	var link = "http://www.reddit.com/comments/" + storyName + '.json';
+  link = link + '?jsonp=commentsCallback';
 	//go get this stuff
-	$.get('http://www.thebearfeed.com/msoutlookit/get_page',{'link':link},commentsCallback,'jsonp');
+  $.get(link, commentsCallback, 'jsonp');
 
 	//we are loading, so return true
 	return true;
@@ -929,9 +930,10 @@ function folderClick(folder_name)
 			//sometimes doing just reddit.com doesn't work.. it gives me upcoming??
 			link = "http://www.reddit.com/r/all/.json";
 		}
+    link = link + '?jsonp=folderCallback';
 
 		tempFolderName = folder_name;
-		$.post('http://www.thebearfeed.com/msoutlookit/get_page',{'link':link},folderCallback,'jsonp');
+    $.get(link, folderCallback, 'jsonp');
 	}
 }
 
@@ -997,8 +999,6 @@ function moarButton()
 	alerttext += "\nFor example, the link you requested:\n" + link + "\ndoes not return a json object when it should :O";
 	alerttext += "\nIf this becomes enough of an issue, I might work on a server-side regex-heavy HTML parser to grab and reconstruct the JSON, but it wouldn't be pretty :O";
 	alert(alerttext);
-
-	//$.get('http://www.thebearfeed.com/msoutlookit/get_page',{'link':link},folderCallback,'jsonp');
 }
 
 
@@ -1008,6 +1008,7 @@ tempFolderName = null;
 
 function folderCallback(data)
 {
+  console.log('the data is');
 	$('.afolder').click(folderIconClick);
 	//we should populate this folder with the data we just got
 	var thefolder = globalFolderDict[tempFolderName];
@@ -1078,7 +1079,9 @@ function handleEmailSend(id,tofield,ccfield,subjectfield,body)
 		var link = tofield += '/.json';
 		link = link.replace(/\s/g,'');
 		//now go get this link
-		$.get('http://www.thebearfeed.com/msoutlookit/get_page',{'link':link},randomLinkCallback,'jsonp');
+    link = link + '?jsonp=randomLinkCallback';
+    $.get(link, randomLinkCallback, 'jsonp');
+
 		//do the loading thing
 		$('.theemailbody').html('<img src="loading.gif">');
 		$('.anemailhi').removeClass('anemailhi');
@@ -1160,12 +1163,10 @@ function handleEmailSend(id,tofield,ccfield,subjectfield,body)
 
 function emailCallback(data)
 {
-	//console.log(data);
 }
 
 function replytoCallback(data)
 {
-	//console.log(data);
 	makeSoftpopup("Comment posted!");
 }
 
