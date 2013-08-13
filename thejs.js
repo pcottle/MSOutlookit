@@ -966,21 +966,15 @@ function moarButton()
 	$('.afolder').unbind('click');
 	if(current_folder.subredditname == 'Front Page')
 	{
-		var link = "http://www.reddit.com/?count=" + current_folder.count + '&after=' + current_folder.after;
+		var link = "http://www.reddit.com/.json?count=" + current_folder.count + '&after=' + current_folder.after;
 	}
 	else
 	{
-		var link = "http://www.reddit.com/r/" + current_folder.subredditname + "/?count=" + current_folder.count + '&after=' + current_folder.after;
+		var link = "http://www.reddit.com/r/" + current_folder.subredditname + "/.json?count=" + current_folder.count + '&after=' + current_folder.after;
 	}
-	link += '/.json';
+  link += '&jsonp=folderCallback';
 	//go get those things and add to this folder!
-
-	var alerttext = "Want bottomless loading? Well the reddit API doesn't return JSON objects after the first";
-	alerttext += " page, so there's nothing I can do :-/ ";
-	alerttext += " Go tell the reddit admins to fix it!! I have the code all ready to process a further page";
-	alerttext += "\nFor example, the link you requested:\n" + link + "\ndoes not return a json object when it should :O";
-	alerttext += "\nIf this becomes enough of an issue, I might work on a server-side regex-heavy HTML parser to grab and reconstruct the JSON, but it wouldn't be pretty :O";
-	alert(alerttext);
+  $.get(link, folderCallback, 'jsonp');
 }
 
 
