@@ -345,6 +345,12 @@ function myStory(parentJson,folder,addToDom)
 
 }
 
+function getRedditDomain() {
+  return (window.location.protocol === 'https') ?
+    'https://ssl.reddit.com' :
+    'http://www.reddit.com';
+}
+
 function populateStory(id)
 {
 	var story = globalStoryDict[id];
@@ -365,7 +371,7 @@ function populateStory(id)
 	$('div.theemailbody').html('<img src="loading.gif">');
 
 	var storyName = id.substr(3);
-	var link = "http://www.reddit.com/comments/" + storyName + '.json';
+  var link = getRedditDomain() + '/comments/' + storyName + '.json';
   link = link + '?jsonp=commentsCallback';
 	//go get this stuff
   $.get(link, commentsCallback, 'jsonp');
@@ -913,12 +919,12 @@ function folderClick(folder_name)
 		//and hopefully the subreddit name is the same as the folder name
 		//this is a limitation of our data aray stuff
 		var subredditname = folder_name.substr(7);
-		var link = "http://www.reddit.com/r/" + subredditname + '/.json';
+    var link = getRedditDomain() + '/r/' + subredditname + '/.json';
 		//except for front page
 		if(subredditname == 'FrontPage')
 		{
 			//sometimes doing just reddit.com doesn't work.. it gives me upcoming??
-			link = "http://www.reddit.com/r/all/.json";
+      link = getRedditDomain() + '/r/all/.json';
 		}
     link = link + '?jsonp=folderCallback';
 
@@ -974,11 +980,11 @@ function moarButton()
 	$('.afolder').unbind('click');
 	if(current_folder.subredditname == 'Front Page')
 	{
-		var link = "http://www.reddit.com/.json?count=" + current_folder.count + '&after=' + current_folder.after;
+    var link = getRedditDomain() + '/.json?count=' + current_folder.count + '&after=' + current_folder.after;
 	}
 	else
 	{
-		var link = "http://www.reddit.com/r/" + current_folder.subredditname + "/.json?count=" + current_folder.count + '&after=' + current_folder.after;
+    var link = getRedditDomain() + '/r/' + current_folder.subredditname + "/.json?count=" + current_folder.count + '&after=' + current_folder.after;
 	}
   link += '&jsonp=folderCallback';
 	//go get those things and add to this folder!
