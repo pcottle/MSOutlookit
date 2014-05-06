@@ -346,7 +346,7 @@ function myStory(parentJson,folder,addToDom)
 }
 
 function getRedditDomain() {
-  return (window.location.protocol === 'https:') ?
+  return (window.location.protocol === 'https') ?
     'https://ssl.reddit.com' :
     'http://www.reddit.com';
 }
