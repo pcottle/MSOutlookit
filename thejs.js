@@ -921,7 +921,6 @@ function folderClick(folder_name)
 			link = "http://www.reddit.com/r/all/.json";
 		}
     link = link + '?jsonp=folderCallback';
-    console.log('the link', link);
 
 		tempFolderName = folder_name;
     $.get(link, folderCallback, 'jsonp');
