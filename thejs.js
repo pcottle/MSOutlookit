@@ -1274,8 +1274,8 @@ function spawnCommandWindow()
 {
 	var usage = "Usage:\n\n";
 	usage += "Add subreddits:\n";
-	usage += "\tIn the TO field, type subreddit [subredditname]+";
-	usage += "\n\nGo to a comments page:\n\tJust paste in the link in the to field and hit send! Eg:\n";
+	usage += "\tIn the TO field, type subreddit [subredditname]+\nexample: subreddit starcraft linux programming\n";
+	usage += "\n\nGo to a comments page:\n\tJust paste in the link in the to field and hit send! example:\n";
 	usage += "\thttp://www.reddit.com/r/gaming/comments/jkiu2/battlefield_3_caspian_border_gameplay_hd";
 	var asd = new myWindow('','','','','',usage,true);
 }
