@@ -26,7 +26,7 @@ var randomNames = [
 	'Richard Winters - Operations',
 	'Lewis Nixon - Operations',
 	'George Luz - Operations',
-	'Larry Compton - Operations',
+	'Lynn Compton - Operations',
 	'Ronald Speirs - Operations',
 	'Anton Chigurh - Headhunting',
 	'Irene Cassini - Astronautics', 
