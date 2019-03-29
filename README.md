@@ -2,7 +2,7 @@
 
 MSOutlookit was my second Javascript project -- it essentially reskins the homepage of reddit (along with other functionality) into a Microsoft Outlook interface.
 
-<img src="http://petercottle.com/miscPics/msoutlookit.png"/>
+<img src="https://github.com/TiKebek/TikebekHost/blob/master/msoutlookit.png?raw=true"/>
 
 It serves the silly (and not-so-honorable) purpose of disguising reddit browsing during work.
 
