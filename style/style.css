@@ -12,6 +12,7 @@ p {
 	-webkit-margin-after: 0em;
 	-webkit-margin-before: 0em;
 }
+
 textarea {
 	padding:10px;
 	font-family:"Times New Roman",Times,serif;
@@ -38,11 +39,9 @@ textarea {
 	float:left;
 }
 
-
 .foldwraphi {
 	background:#DDD;
 }
-
 
 .afolder {
 	margin-left:10px;
@@ -69,8 +68,6 @@ textarea {
 	background-position:-78px -118px;
 	width:159px;
 }
-
-
 
 .start {
 	background-image:url('../img/sprites.png');
@@ -106,6 +103,7 @@ td.right * .downarrow {
 	height:18px;
 	background-position:0px -65px;
 }
+
 td.right:hover * .downarrow {
 	background-image:url('../img/arrows.png');
 }
@@ -276,9 +274,9 @@ td.right:hover * .commentroothi {
 	background:#CAE6E6;
 	border:solid 1px blue;
 }
+
 td.right:hover * .md {
 }
-
 
 td.right:hover  * .showhover {
 	opacity:0.8;
@@ -318,6 +316,7 @@ td.right:hover * iframe {
 td.right * .lynxexpandodiv {
 	display:none;
 }
+
 td.right:hover * .lynxexpandodiv {
 	display:block;
 }
@@ -366,18 +365,23 @@ td.right:hover * .child5 {
 td.right:hover * .child6 {
 	border-left:2px dashed #66FF66;
 }
+
 td.right:hover * .child7 {
 	border-left:2px dashed #99FF33;
 }
+
 td.right:hover * .child8 {
 	border-left:2px dashed #CCFF33;
 }
+
 td.right:hover * .child9 {
 	border-left:2px dashed #FFFF00;
 }
+
 td.right:hover * .child10 {
 	border-left:2px dashed #FFCC00;
 }
+
 td.right:hover * .child11 {
 	border-left:2px dashed #FF9933;
 }
@@ -411,7 +415,6 @@ td.right:hover * .child12 {
 	color:#369;
 	font-size:small;
 	background:#EEE;
-
 }
 
 .authorandstuff {
@@ -433,6 +436,7 @@ td.right:hover * .child12 {
 	vertical-align:top;
 	bottom: 31px;
 }
+
 .folderholder {
 	overflow-y:auto;
 }
@@ -445,6 +449,7 @@ td.right:hover * .child12 {
 	top:4px;
 	cursor:pointer;
 }
+
 td.right:hover * .storycommentline {
 	background:#85D6FF;
 }
@@ -454,24 +459,27 @@ td.right * .storycommentline {
 	margin-top:20px;
 	margin-bottom:20px;
 }
+
 .spacer {
 	height:30px;
 }
+
 .storydown {
 	position:relative !important;
 	left:9px !important;
 	top:0px;
 }
+
 .storyup {
 	position:relative !important;
 	top: 15px !important;
 	left: 9px !important;
 }
+
 .storyreply {
 	position:relative;
 	left:40px;
 }
-
 
 .popup {
 	position:fixed;
@@ -484,30 +492,30 @@ td.right * .storycommentline {
 	cursor:pointer;
 	border:2px solid #EEE;
 	z-index:1000;
--moz-border-radius:10px;
--webkit-border-radius:10px;
-border-radius:10px;
-/*IE 7 AND 8 DO NOT SUPPORT BORDER RADIUS*/
--moz-box-shadow:0px 0px 8px #000000;
--webkit-box-shadow:0px 0px 8px #000000;
-box-shadow:0px 0px 8px #000000;
-/*IE 7 AND 8 DO NOT SUPPORT BLUR PROPERTY OF SHADOWS*/
-background-image: -moz-linear-gradient(top, #08ff13, #6aff5e);
-background-image: -webkit-gradient(linear, center top, center bottom, from(#08ff13), to(#6aff5e));
-background-image: -o-linear-gradient(top, #08ff13, #6aff5e);
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#08ff13', endColorstr='#6aff5e');
-/*INNER ELEMENTS MUST NOT BREAK THIS ELEMENTS BOUNDARIES*/
-/*Element must have a height (not auto)*/
-/*All filters must be placed together*/
--ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#08ff13', endColorstr='#6aff5e')";
-/*Element must have a height (not auto)*/
-/*All filters must be placed together*/
-background-image: linear-gradient(top, #08ff13, #6aff5e);
--moz-background-clip: padding-box;
--webkit-background-clip: padding-box;
-background-clip: padding-box;
-/*Use "background-clip: padding-box" when using rounded corners to avoid the gradient bleeding through the corners*/
-/*--IE9 WILL PLACE THE FILTER ON TOP OF THE ROUNDED CORNERS--*/
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	/*IE 7 AND 8 DO NOT SUPPORT BORDER RADIUS*/
+	-moz-box-shadow:0px 0px 8px #000000;
+	-webkit-box-shadow:0px 0px 8px #000000;
+	box-shadow:0px 0px 8px #000000;
+	/*IE 7 AND 8 DO NOT SUPPORT BLUR PROPERTY OF SHADOWS*/
+	background-image: -moz-linear-gradient(top, #08ff13, #6aff5e);
+	background-image: -webkit-gradient(linear, center top, center bottom, from(#08ff13), to(#6aff5e));
+	background-image: -o-linear-gradient(top, #08ff13, #6aff5e);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#08ff13', endColorstr='#6aff5e');
+	/*INNER ELEMENTS MUST NOT BREAK THIS ELEMENTS BOUNDARIES*/
+	/*Element must have a height (not auto)*/
+	/*All filters must be placed together*/
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#08ff13', endColorstr='#6aff5e')";
+	/*Element must have a height (not auto)*/
+	/*All filters must be placed together*/
+	background-image: linear-gradient(top, #08ff13, #6aff5e);
+	-moz-background-clip: padding-box;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+	/*Use "background-clip: padding-box" when using rounded corners to avoid the gradient bleeding through the corners*/
+	/*--IE9 WILL PLACE THE FILTER ON TOP OF THE ROUNDED CORNERS--*/
 }
 
 .softpopup {
@@ -521,32 +529,35 @@ background-clip: padding-box;
 	width:3000px;
 }
 
-
 td.right:hover *  .arrowshadow {
 	box-shadow: 0px 0px 5px #999;
 }
+
 .upped {
 	background-position:0px 0px !important;
 }
+
 .downed {
 	background-position:0px -20px !important;
 }
 
 .anemail {
-
 	cursor:pointer;
 	min-height:40px;
 	max-height:200px;
 	border-bottom:1px solid #E1E1E1;
 	padding-bottom:1px;
 }
+
 .emailunread  * .emailtitle {
 	/*font-weight:bold;*/
 }
+
 .anemailhi {
 	border:1px dashed blue;
 	background:#A7CDF0;
 }
+
 .anemailhi * .emailtitle {
 	/* color:#FFF; */
 }
@@ -556,7 +567,6 @@ td.right:hover *  .arrowshadow {
 	width:25px;
 	background-image:url('../img/sprites.png');
 	background-position:-240px -59px;
-
 }
 
 .emailpreview {
@@ -576,7 +586,6 @@ td.right:hover *  .arrowshadow {
 	background-image:url('../img/sprites.png');
 	background-position:-182px -60px;
 }
-
 
 .mainrow {
 	height:3000px;
@@ -779,6 +788,7 @@ td.right:hover *  .arrowshadow {
 	left:120px;
 	width:80%;
 }
+
 .subjectfield {
 	position:relative;
 	top:-185px;
@@ -798,8 +808,9 @@ div.expando {
 	cursor:pointer;
 	cursor:hand;
 }
+
 div.expando:hover {
-opacity:1.0;
+	opacity:1.0;
 }
 
 div.lynxexpando {
@@ -815,7 +826,7 @@ div.lynxexpando {
 	cursor:hand;
 }
 div.lynxexpando:hover {
-opacity:1.0;
+	opacity:1.0;
 }
 
 .expandoimg {
@@ -835,8 +846,6 @@ opacity:1.0;
 	margin:10px;
 }
 
-
-
 .emailname {
 	font-family: "Segoe UI","Helvetica Neu",Times,serif;
 	padding-top:2px;
@@ -853,13 +862,12 @@ opacity:1.0;
 	opacity:0.08;
 }
 
-.donatepic
-{
--moz-border-radius:12px;
--webkit-border-radius:12px;
-border-radius:12px;
-/*IE 7 AND 8 DO NOT SUPPORT BORDER RADIUS*/
--moz-box-shadow:0px 0px 27px #000000;
--webkit-box-shadow:0px 0px 27px #000000;
-box-shadow:0px 0px 27px #000000;
+.donatepic{
+	-moz-border-radius:12px;
+	-webkit-border-radius:12px;
+	border-radius:12px;
+	/*IE 7 AND 8 DO NOT SUPPORT BORDER RADIUS*/
+	-moz-box-shadow:0px 0px 27px #000000;
+	-webkit-box-shadow:0px 0px 27px #000000;
+	box-shadow:0px 0px 27px #000000;
 }
