@@ -16,9 +16,6 @@ Since this was my first project with both a backend and a front-end, I experienc
 
 It was a fun challenge to embed reddit functionality inside a different UI (as well as reimplement window management and the desktop taskbar). I'm thankful for the reddit community, who inspired me to keep working and get this out the door before starting grad school.
 
-## Usage
-
-The site still gets around [10,000 unique visitors](http://msoutlookit.com/awstats.html) per month at the time of writing, so I've left the server running for the time being, despite the code not being in the best shape.
 
 ## Reddit Api Machine
 On this website you can find the resourses for creating new features
